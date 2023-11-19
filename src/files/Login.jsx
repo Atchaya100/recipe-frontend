@@ -31,7 +31,6 @@ export default function Login() {
      localStorage.setItem("username",result.authData.username)
      localStorage.setItem("name",result.authData.name)
      localStorage.setItem("email",result.authData.email)
-     console.log(result)
      if(result=="wrong password" ||result=="wrong mailid"){
       document.getElementById("hide").style.display="block";
      }

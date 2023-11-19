@@ -9,7 +9,10 @@
     border-radius: 10px;
 }
 #side{
-    margin-left:10%;
+    margin-left:5%;
+    border:1px solid black;
+    padding:20px;
+    border-radius:30px;
 }
 #comments{
     margin:50px;
@@ -24,16 +27,32 @@
     color:white;
     text-decoration: none;
 }
+.edit{
+    background-color: black;
+    color:white;
+    margin:10px;
+    float:right;
+}
+#same{
+    display:none;
+}
 @media (min-width: 300px) and (max-width: 800px) {
     #top{
         display: flex;
+        width:85%;
         flex-direction: column;
-        margin:30px;
+        margin:20px;
     }
     #top img{
-        width:70px;
-        height:70px;
+        width:170px;
+        height:170px;
         margin:30px;
         border-radius: 10px;
+    }
+    .edit{
+        background-color: black;
+        color:white;
+        font-size: 10px;
+        float:right;
     }
 }

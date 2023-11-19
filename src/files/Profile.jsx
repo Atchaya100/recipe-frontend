@@ -45,7 +45,7 @@ const navigate=useNavigate();
         <img src={foof}/>
         <p><b>{item.name}</b>-{item.author}</p>
        
-        <Button id="button1" onClick={nav} variant="flat"><Link to={`/recipes/${item._id}`}>View Recipe</Link></Button>
+        <Button id="button1" variant="flat"><Link to={`/recipes/${item._id}`}>View Recipe</Link></Button>
         </div>
         
          ))}
