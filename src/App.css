@@ -1,0 +1,41 @@
+#nav{
+background-color: brown;
+padding: 0;
+margin: 0;
+display:flex;
+justify-content: flex-end;
+}
+li{
+  list-style-type: none;
+  color: white;
+  font-size: 20px;
+  padding:30px;
+}
+#nav a{
+color: white;
+text-decoration: none;
+}
+#nav p{
+  margin-right:100px;
+  font-family: Agbalumo;
+  margin-top:15px;
+  color:white;
+  font-size: 30px;
+}
+@media (min-width: 300px) and (max-width: 800px) {
+  li{
+    list-style-type: none;
+    color: white;
+    font-size: 12px;
+    line-height: 50px;
+    padding:10px;
+  }
+  #nav p{
+    margin-right:10px;
+    font-family: Agbalumo;
+    margin-top:15px;
+    color:white;
+    font-size: 20px;
+  }
+}
+

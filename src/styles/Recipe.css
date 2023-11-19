@@ -1,0 +1,39 @@
+#top{
+    display:flex;
+    margin:50px;
+}
+#top img{
+    width:400px;
+    height:400px;
+    margin:10px;
+    border-radius: 10px;
+}
+#side{
+    margin-left:10%;
+}
+#comments{
+    margin:50px;
+    border:1px solid black;
+    border-radius:20px;
+    padding:20px;
+}
+#form1{
+    width:50%;
+}
+#recipe a{
+    color:white;
+    text-decoration: none;
+}
+@media (min-width: 300px) and (max-width: 800px) {
+    #top{
+        display: flex;
+        flex-direction: column;
+        margin:30px;
+    }
+    #top img{
+        width:70px;
+        height:70px;
+        margin:30px;
+        border-radius: 10px;
+    }
+}

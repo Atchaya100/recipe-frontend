@@ -1,0 +1,22 @@
+#center{
+    text-align: center;
+    font-family: Agbalumo;
+}
+#center img{
+    width:400px;
+    height:400px;
+    margin:40px;
+    border-radius:50px;
+}
+#center Button{
+    background-color: green;
+    color:white;
+}
+@media (min-width: 300px) and (max-width: 800px) {
+    #center img{
+        width:200px;
+        height:200px;
+        margin:50px;
+        border-radius:20px;
+    }
+}

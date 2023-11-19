@@ -1,0 +1,29 @@
+#form {
+    margin: 40px auto;
+    padding:3rem;
+    width:40%;
+    border-radius: 30px;
+    border:1px solid rgb(185, 172, 172);
+  }
+#form a{
+    text-decoration: none;
+    color:   darkblue !important;
+}
+#hide,#user,#email{
+  color:red;
+  display: none;
+}
+@media (min-width: 300px) and (max-width: 800px) {
+  #form {
+    margin: 40px auto;
+    padding:2rem;
+    width:90%;
+    border-radius: 30px;
+    border:1px solid rgb(185, 172, 172);
+  }
+  #form a{
+    text-decoration: none;
+    color:   darkblue !important;
+    font-size:11px;
+}
+}
