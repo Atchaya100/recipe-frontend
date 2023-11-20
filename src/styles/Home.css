@@ -1,23 +1,48 @@
-#center{
+#corner span{
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     font-family: Agbalumo;
 }
-#center img{
-    width:400px;
-    height:400px;
-    margin:40px;
-    border-radius:50px;
-}
-#center Button{
-    background-color: green;
+#corner Button{
+    background-color: rgb(18, 17, 18);
     color:white;
 }
+#corner{
+    display: flex;
+    
+}
+#corner img{
+   width:700px;
+   transform:rotate(180deg);
+   height:600px;
+   margin-right: 40px;
+}
 @media (min-width: 300px) and (max-width: 800px) {
-    #center img{
-        width:200px;
-        height:200px;
-        margin:50px;
-        border-radius:20px;
-        
+    #corner span{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-family: Agbalumo;
+        font-size: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #corner Button{
+        background-color: rgb(18, 17, 18);
+        color:white;
+    }
+    #corner{
+        display: flex;
+        flex-direction: column;
+    }
+    #corner img{
+       width:310px;
+       transform:rotate(270deg);
+       margin:10px;
+       height:300px;
+       
     }
 }
