@@ -1,5 +1,5 @@
 import{ React,useState,useEffect} from 'react'
-import foof from '../assets/foof.webp';
+import front from '../assets/front.jpg';
 import '../styles/Recipe.css';
 import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
@@ -69,7 +69,7 @@ export const Recipe = () => {
      <Button variant="none" onClick={del} className="edit">Delete</Button>
      </p>
     <div id="top">
-        <img src={foof}/>
+        <img src={front}/>
         <span id="side">
             <h4>{data.name}</h4>
             <p>Posted by: {data.author}</p>

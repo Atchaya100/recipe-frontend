@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/Home.css';
 import { Link} from "react-router-dom";
 import front from '../assets/front.avif';
-import food from '../assets/food.avif';
+import foof from '../assets/foof.webp';
 import { Button } from 'react-bootstrap';
 import { useEffect } from 'react';
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
     <div id="corner">
-    <img src={food}/><br></br>
+    <img src={foof}/><br></br>
        <span>
       <h4>Create, Find New Recipes Everyday</h4><br></br>
       <Button id="h" variant="none"><Link to='/login'>Login</Link></Button>
