@@ -1,5 +1,6 @@
 import{ React,useState,useEffect} from 'react'
 import front from '../assets/front.jpg';
+import { Link} from "react-router-dom";
 import '../styles/Recipe.css';
 import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
@@ -66,6 +67,7 @@ export const Recipe = () => {
   return (
     <>
     <p id="same">
+    <Button variant="none" className="edit"><Link to={`/add/${data._id}`}>Edit</Link></Button>
      <Button variant="none" onClick={del} className="edit">Delete</Button>
      </p>
     <div id="top">

@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import foof from '../assets/foof.webp';
+import front from '../assets/front.jpg';
 import '../styles/Profile.css';
 import { Button } from 'react-bootstrap';
 import { Link} from "react-router-dom";
@@ -42,7 +42,7 @@ const navigate=useNavigate();
         {
         formData.map(item => (  
         <div id="recipe">
-        <img src={foof}/>
+        <img src={front}/>
         <p><b>{item.name}</b>-{item.author}</p>
        
         <Button id="button1" variant="flat"><Link to={`/recipes/${item._id}`}>View Recipe</Link></Button>

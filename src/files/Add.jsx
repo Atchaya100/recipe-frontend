@@ -1,9 +1,10 @@
-import {React, useState} from 'react'
+import {React, useState,useEffect} from 'react'
 import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useParams } from 'react-router-dom';
 import '../styles/Add.css';
 export const Add = () => {
+  const {i}=useParams();
    const navigate=useNavigate();
     const [formData, setFormData] = useState({
         author:"",
@@ -20,13 +21,32 @@ export const Add = () => {
         {...formData,[name]:value}
        ) 
      }
+     if(i!=undefined){
+     useEffect(() => {
+    const find=async () => {
+      
+      const data=await fetch(`https://recipe-backend-rvag.onrender.com/api/find/${i}`,{
+        
+        headers:
+        {
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+      })
+    
+      const result=await data.json();
+      console.log(result)
+      setFormData(result)
+   
+    }
+    find();
+  
+  },[]);
+}
      
       const handleSubmit=async(e)=>{
         e.preventDefault();
-        if(localStorage.getItem("token")==null){
-          alert("Login again Authentication error")
-        }
-        const data=await fetch('http://localhost:3000/api/createRecipe', {
+        if(i==undefined){
+        const data=await fetch('https://recipe-backend-rvag.onrender.com/apiapi/createRecipe', {
       method: 'post',
       headers: {'Content-Type':'application/json', 'Authorization': `Bearer ${localStorage.getItem("token")}`},
       body:JSON.stringify({
@@ -40,12 +60,36 @@ export const Add = () => {
       
       })
      })
+    
      const result=await data.json();
      console.log(result)
      if(result){
       navigate('/recipe')
      }
-        console.log(formData);
+    }else{
+      const data=await fetch(`https://recipe-backend-rvag.onrender.com/api/updateRecipe/${i}`, {
+        method: 'put',
+        headers: {'Content-Type':'application/json', 'Authorization': `Bearer ${localStorage.getItem("token")}`},
+        body:JSON.stringify({
+          "author":localStorage.getItem("username"),
+          "name":formData.name,
+         "category":formData.category,
+          "time":formData.time,
+          "ingredients":formData.ingredients,
+          "instructions":formData.instructions,
+          "benefits":formData.benefits
+        
+        })
+       })
+      
+       const result=await data.json();
+       console.log(result)
+       if(result){
+        navigate('/recipe')
+       }
+
+    }
+        
       }
 
   return (

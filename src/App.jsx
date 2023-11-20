@@ -29,6 +29,7 @@ function App() {
       <Route path="/register" element={<Register/>} />
       <Route path="/profile" element={<Profile/>} />
       <Route path="/add" element={<Add/>} />
+      <Route path="/add/:i" element={<Add/>} />
      </Routes>
     </BrowserRouter>
   
