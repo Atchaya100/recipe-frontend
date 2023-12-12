@@ -10,16 +10,11 @@ export const Recipes = () => {
   const nav=useNavigate()
   useEffect(() => {
     if(localStorage.getItem("token")==null){
-      nav("/login")
+      document.getElementById("button").style.display="none"
      }
 
   const findAll=async () => {
-    const data=await fetch("https://recipe-backend-rvag.onrender.com/api/findAll",{
-      headers:
-      {
-        Authorization: `Bearer ${localStorage.getItem("token")}`
-      }
-    })
+    const data=await fetch("https://recipe-backend-rvag.onrender.com/api/findAll")
     const result=await data.json();
     setFormData(result)
   }
