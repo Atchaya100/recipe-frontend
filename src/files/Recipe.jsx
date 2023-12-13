@@ -10,23 +10,24 @@ import { useNavigate } from 'react-router-dom';
 export const Recipe = () => {
   const {id}=useParams();
   const [data, setData] = useState([])
+  const [comments, setComments] = useState([])
   const nav=useNavigate()
   useEffect(() => {
     var a;
+   
   const find=async () => {
     
-    const data=await fetch(`https://recipe-backend-rvag.onrender.com/api/find/${id}`,{
-      
-      headers:
-      {
-        Authorization: `Bearer ${localStorage.getItem("token")}`
-      }
-    })
-  
+    const data=await fetch(`https://recipe-backend-rvag.onrender.com/api/find/${id}`)
     const result=await data.json();
+    const Allcomments=await fetch(`https://recipe-backend-rvag.onrender.com/api/findComments/${id}`)
+    const res=await Allcomments.json();
+    setComments(res)
     
     if(result.author==localStorage.getItem("username")){
       document.getElementById("same").style.display="block";
+    }
+    if(localStorage.getItem("username")===null){
+      document.getElementById("h").style.display="none";
     }
     a=result._id
     setData(result)
@@ -53,15 +54,23 @@ export const Recipe = () => {
 
    }
     const [formData, setFormData] = useState({
-       comment:""
+       comment:"",
+       rid:id,
+       name:localStorage.getItem("username")
       })
       const handleChange=(e)=>{
         const {name,value}=e.target;
         setFormData({...formData,[name]:value})
      }
-      const handleSubmit=(e)=>{
+      const handleSubmit=async (e)=>{
         e.preventDefault();
-        console.log(formData);
+          const data=await fetch('https://recipe-backend-rvag.onrender.com/api/comment', {
+          method: 'post',
+          headers: {'Content-Type':'application/json', 'Authorization': `Bearer ${localStorage.getItem("token")}`},
+          body:JSON.stringify(formData)
+         })
+         console.log(data)
+         
       }
       
   return (
@@ -81,6 +90,20 @@ export const Recipe = () => {
             <p>Benefits: {data.benefits}</p>
             <span>Instructions: {data.instructions}</span>
         </span>
+    </div>
+    <div id="comments">
+    <p>Comments</p>
+    {comments.map(item=>
+     <p key={item.id}> {item.name}  :   {item.comment} </p>
+)}
+     <Form id="h" onSubmit={handleSubmit}>
+           <Form.Group className="mb-3">
+            <Form.Label>Enter your Comments:</Form.Label>
+            <Form.Control type="text" name="comment" onChange={handleChange} value={formData.comment} required />
+           </Form.Group>
+          
+           <Button type="submit" variant="success">Post</Button>
+        </Form>
     </div>
     </>
   )

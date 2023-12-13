@@ -46,7 +46,7 @@ export const Add = () => {
       const handleSubmit=async(e)=>{
         e.preventDefault();
         if(i==undefined){
-        const data=await fetch('https://recipe-backend-rvag.onrender.com/apiapi/createRecipe', {
+        const data=await fetch('https://recipe-backend-rvag.onrender.com/api/createRecipe', {
       method: 'post',
       headers: {'Content-Type':'application/json', 'Authorization': `Bearer ${localStorage.getItem("token")}`},
       body:JSON.stringify({
